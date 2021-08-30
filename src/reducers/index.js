@@ -1,5 +1,5 @@
-import { act } from "react-dom/test-utils";
-import { FETCH_START, FETCH_SUCCESS, FETCH_FAIL } from "../actions";
+// import { act } from "react-dom/test-utils";
+import { FETCH_START, FETCH_SUCCESS, FETCH_FAIL, ADD_SMURF, SET_ERROR } from "../actions";
 
 export const initialState = {
     smurf: [],
@@ -9,42 +9,43 @@ export const initialState = {
 
 export const reducer = (state = initialState, action) => {
     switch(action.type){
-        case 'FETCH_START':
+        case FETCH_START:
             return({
                 ...state,
                 isLoading: true
-            })
-        case 'FETCH_SUCCESS':
+            });
+        case FETCH_SUCCESS:
             return({
                 ...state,
                 isLoading: false,
                 smurfs: action.payload
-            })
-        case 'FETCH_FAIL':
+            });
+        case FETCH_FAIL:
             return({
                 ...state,
                 isLoading: false,
                 error: action.type
-            })
-        case 'ADD_SMURF':
+            });
+        case ADD_SMURF:
             return ({
                 ...state,
                 smurfs:[...state.smurfs,
                 action: payload]
-            })
-        case 'SET_ERROR':
+            });
+        case SET_ERROR:
             return({
                 ...state,
                 error: action.payload
-            })
+            });
             default:
                 return state;
         
     }
 }
 
-//**************DO NOT EDIT ANY CODE BEYOND THIS POINT**************//
 export default reducer;
+//**************DO NOT EDIT ANY CODE BEYOND THIS POINT**************//
+// export default reducer;
 
 //Task List:
 //1. Adds the following state values into the initialState:
